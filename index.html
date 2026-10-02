@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 21st Birthday Rasya Laras Prameswari 💕</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffb6c1;
+            --pink-card: #ffe4e1;
+            --pink-btn: #ff69b4;
+            --pink-btn-hover: #ff1493;
+            --text-dark: #5c4033;
+            --text-pink: #d87093;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #ffc0cb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: var(--text-dark);
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Background Love Besar Mengambang */
+        .bg-love {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28rem;
+            color: rgba(255, 182, 193, 0.25);
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            animation: pulseLove 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseLove {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+            50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.35; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+            padding: 25px 20px;
+            text-align: center;
+            border: 2px solid #fff;
+            position: relative;
+            z-index: 10;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        /* Custom Scrollbar for Container */
+        .container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .container::-webkit-scrollbar-thumb {
+            background: var(--pink-soft);
+            border-radius: 10px;
+        }
+
+        /* Screen States */
+        .screen {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Welcome Screen */
+        .welcome-box {
+            background: var(--pink-card);
+            border-radius: 20px;
+            padding: 35px 20px;
+            box-shadow: 0 8px 20px rgba(255, 192, 203, 0.5);
+            border: 2px dashed var(--pink-btn);
+            margin-bottom: 25px;
+        }
+
+        .welcome-box h1 {
+            font-size: 1.5rem;
+            color: var(--text-pink);
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .welcome-box span {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.3rem;
+            display: block;
+            color: var(--pink-btn-hover);
+        }
+
+        .btn-hi {
+            background: linear-gradient(135deg, var(--pink-btn), var(--pink-btn-hover));
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hi:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Relationship Counter Widget */
+        .counter-box {
+            background: rgba(255, 240, 245, 0.8);
+            border: 1px solid var(--pink-soft);
+            border-radius: 15px;
+            padding: 12px;
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+            color: var(--text-pink);
+            font-weight: 500;
+        }
+
+        /* Main Menu / 3 Boxes */
+        .menu-title {
+            font-size: 1.1rem;
+            color: var(--text-pink);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .boxes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .mystery-box {
+            background: #fff;
+            border: 2px solid var(--pink-soft);
+            border-radius: 15px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+        }
+
+        .mystery-box:hover {
+            background: var(--pink-card);
+            transform: translateY(-2px);
+            border-color: var(--pink-btn);
+        }
+
+        .mystery-box h3 {
+            font-size: 0.95rem;
+            color: var(--text-pink);
+            margin-bottom: 3px;
+        }
+
+        .box-content {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-top: 8px;
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+            background: rgba(255, 240, 245, 0.95);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .mystery-box.center-box.opened {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            border: 2px solid var(--pink-btn-hover);
+        }
+
+        .birthday-banner {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.8rem;
+            color: var(--pink-btn-hover);
+            line-height: 1.2;
+            margin: 5px 0 8px 0;
+            text-align: center;
+        }
+
+        .closing-note {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 8px;
+            line-height: 1.4;
+            border-top: 1px dashed var(--pink-soft);
+            padding-top: 6px;
+            text-align: center;
+        }
+
+        /* Polaroid Gallery Section (6 Photos) */
+        .gallery-section {
+            margin-top: 15px;
+            background: #fff;
+            border: 2px solid var(--pink-soft);
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .gallery-title {
+            font-size: 0.9rem;
+            color: var(--text-pink);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .polaroid-slider {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .polaroid-slider::-webkit-scrollbar {
+            height: 5px;
+        }
+        .polaroid-slider::-webkit-scrollbar-thumb {
+            background: var(--pink-soft);
+            border-radius: 10px;
+        }
+
+        .polaroid-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 6px 6px 18px 6px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            min-width: 110px;
+            flex: 0 0 auto;
+            transform: rotate(-2deg);
+        }
+
+        .polaroid-card:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid-card img {
+            width: 98px;
+            height: 98px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .polaroid-caption {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-top: 6px;
+            font-family: 'Sacramento', cursive;
+        }
+
+        /* Love Reasons Generator Button */
+        .reason-btn {
+            background: var(--pink-card);
+            border: 1px solid var(--pink-btn);
+            color: var(--text-pink);
+            padding: 8px 15px;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.2s;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .reason-btn:hover {
+            background: var(--pink-btn);
+            color: white;
+        }
+
+        #reason-output {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* Floating Vinyl Music Player Widget */
+        .vinyl-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--pink-soft);
+            border-radius: 50px;
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .vinyl-disc {
+            width: 28px;
+            height: 28px;
+            background: #333;
+            border-radius: 50%;
+            border: 2px dashed var(--pink-soft);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spinVinyl 3s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .vinyl-disc.playing {
+            animation-play-state: running;
+        }
+
+        .vinyl-disc::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--pink-btn);
+            border-radius: 50%;
+        }
+
+        @keyframes spinVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vinyl-text {
+            font-size: 0.75rem;
+            color: var(--text-pink);
+            font-weight: 600;
+        }
+
+        #audio-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Love Besar -->
+    <div class="bg-love">❤</div>
+
+    <!-- Floating Music Player Control -->
+    <div class="vinyl-player" onclick="toggleAudio()">
+        <div id="vinyl-icon" class="vinyl-disc"></div>
+        <div id="vinyl-label" class="vinyl-text">🎵 Happy Birthday</div>
+    </div>
+
+    <!-- Hidden YouTube Audio for Happy Birthday -->
+    <div id="audio-container">
+        <iframe id="soundtrack" width="0" height="0" src="https://www.youtube.com/embed/mAJa4SF_VVI?enablejsapi=1&loop=1&playlist=mAJa4SF_VVI" frameborder="0"></iframe>
+    </div>
+
+    <div class="container">
+        <!-- SCREEN 1: WELCOME -->
+        <div id="screen-welcome" class="screen active">
+            <div class="welcome-box">
+                <h1>Welcome my pretty girl<br><span>Rasya Laras Prameswari</span></h1>
+            </div>
+            <button class="btn-hi" onclick="goToMenu()">HI 💕</button>
+        </div>
+
+        <!-- SCREEN 2: 3 BOXES MENU + EXTRAS -->
+        <div id="screen-menu" class="screen">
+            <!-- Relationship Counter -->
+            <div class="counter-box" id="relationship-counter">
+                ⏳ Bersama kamu selama: Menghitung waktu...
+            </div>
+
+            <div class="menu-title">Pilih kotak di bawah ini ya sayang ✨</div>
+            
+            <div class="boxes-container">
+                <!-- Kotak Kiri -->
+                <div class="mystery-box" onclick="openBox(this, 'content-1')">
+                    <h3>💌 Kotak Spesial 1</h3>
+                    <div id="content-1" class="box-content">
+                        Terimakasihh sudaah menjalanii hari hari bersamaku dengan berbagai cerita baik senang, tawa, dan sedih bersama selama 2 tahun jalan 3 tahun ini.
+                    </div>
+                </div>
+
+                <!-- Kotak Tengah (Utama & Kembang Api) -->
+                <div id="center-mystery-box" class="mystery-box center-box" onclick="openCenterBox(this)">
+                    <h3>✨ Kotak Utama Kejutan ✨</h3>
+                    <div id="content-center" class="box-content">
+                        <div class="birthday-banner">HAPPPYY BIRRTHDAAYYYY MY PRETTYY GIRRLL 💕😘😘💘❤🥰</div>
+                        <p id="typing-paragraph" style="text-align: center; font-size: 0.83rem; color: var(--text-dark); font-weight: 500; min-height: 35px;"></p>
+                        <div class="closing-note">
+                            Dan ditutup dengan terimakasihh sudaahh menerimaa aku di kehidupaan kamuu iniii. I love you so much! ❤️
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kotak Kanan -->
+                <div class="mystery-box" onclick="openBox(this, 'content-2')">
+                    <h3>💌 Kotak Spesial 2</h3>
+                    <div id="content-2" class="box-content">
+                        Maaff aku banyak salahnya sama kamuu, suka bikin kamuuu badmooodd, kesell, marahhh, overthinkingg tentangg akuuu maaf banget ya sayangggg &lt;3
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Lane / Galeri Foto Polaroid (6 Kotak) -->
+            <div class="gallery-section">
+                <div class="gallery-title">📸 Our Sweet Memories</div>
+                <div class="polaroid-slider">
+                    <!-- Foto 1 -->
+                    <div class="polaroid-card">
+                        <img src="c:\Users\USER\Documents\p\foto1.jpeg" alt="Memory 1">
+                        <div class="polaroid-caption">First Years</div>
+                    </div>
+                    <!-- Foto 2 -->
+                    <div class="polaroid-card">
+                        <img src="c:\Users\USER\Documents\p\foto2.jpeg" alt="Memory 2">
+                        <div class="polaroid-caption">Laughs & Joy</div>
+                    </div>
+                    <!-- Foto 3 -->
+                    <div class="polaroid-card">
+                        <img src="c:\Users\USER\Documents\p\foto3.jpeg" alt="Memory 3">
+                        <div class="polaroid-caption">Forever Us</div>
+                    </div>
+                    <!-- Foto 4 -->
+                    <div class="polaroid-card">
+                        <img src="c:\Users\USER\Documents\p\foto4.jpeg" alt="Memory 4">
+                        <div class="polaroid-caption">Best Moments</div>
+                    </div>
+                    <!-- Foto 5 -->
+                    <div class="polaroid-card">
+                        <img src=c:" c:\Users\USER\Documents\p\foto5.jpeg" alt="Memory 5">
+                        <div class="polaroid-caption">My Safe Place</div>
+                    </div>
+                    <!-- Foto 6 -->
+                    <div class="polaroid-card">
+                        <img src="c:\Users\USER\Documents\p\foto6.jpeg" alt="Memory 6">
+                        <div class="polaroid-caption">21st Birthday</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Love Reasons Generator -->
+            <button class="reason-btn" onclick="getRandomReason()">✨ Klik Kalau Lagi Kangen ✨</button>
+            <div id="reason-output">Pencet tombol di atas ya sayang!</div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Relationship Counter Logic
+        function updateCounter() {
+            const startDate = new Date('2024-01-01'); // Ubah tanggal sesuai tanggal jadian kalian
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('relationship-counter').innerText = `⏳ Kita udah bersama selama ${diffDays} hari dan terus bertambah ❤️`;
+        }
+        updateCounter();
+
+        // 2. Music Player Control
+        let isPlaying = false;
+        function toggleAudio() {
+            let iframe = document.getElementById('soundtrack');
+            let disc = document.getElementById('vinyl-icon');
+            let label = document.getElementById('vinyl-label');
+            
+            if (!isPlaying) {
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                disc.classList.add('playing');
+                label.innerText = "Playing 🎵";
+                isPlaying = true;
+            } else {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                disc.classList.remove('playing');
+                label.innerText = "Paused ⏸";
+                isPlaying = false;
+            }
+        }
+
+        function goToMenu() {
+            document.getElementById('screen-welcome').classList.remove('active');
+            document.getElementById('screen-menu').classList.add('active');
+            
+            if (!isPlaying) {
+                toggleAudio();
+            }
+            triggerSoftConfetti();
+        }
+
+        function openBox(boxElement, contentId) {
+            const content = document.getElementById(contentId);
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+                triggerMiniConfetti();
+            }
+        }
+
+        let typingStarted = false;
+        function startTypingEffect() {
+            if (typingStarted) return;
+            typingStarted = true;
+            
+            const text = "Maaf sayangg aku belum bisa kasih kamuu banyakkk :(";
+            const paragraph = document.getElementById('typing-paragraph');
+            paragraph.innerHTML = "";
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    paragraph.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            typeWriter();
+        }
+
+        function openCenterBox(boxElement) {
+            const content = document.getElementById('content-center');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                boxElement.classList.remove('opened');
+            } else {
+                content.style.display = 'block';
+                boxElement.classList.add('opened');
+                startTypingEffect();
+                triggerNewYearFireworksShow();
+            }
+        }
+
+        const reasons = [
+            "Karena ketawa kamu bisa langsung balikin mood aku yang lagi jelek.",
+            "Karena kamu selalu sabar dan mau nemenin aku di setiap kondisi.",
+            "Karena cara kamu marah itu malah keliatan imut banget di mata aku.",
+            "Karena kamu adalah rumah tempat aku paling nyaman buat pulang.",
+            "Karena setiap hari bareng kamu selalu ada cerita seru yang baru.",
+            "Karena kamu selalu support mimpiku dan jadi penyemangat hidupku."
+        ];
+
+        function getRandomReason() {
+            const randomIndex = Math.floor(Math.random() * reasons.length);
+            document.getElementById('reason-output').innerText = `"${reasons[randomIndex]}" 💕`;
+            triggerMiniConfetti();
+        }
+
+        function triggerSoftConfetti() {
+            confetti({
+                particleCount: 70,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ['#ffb6c1', '#ff69b4', '#ffe4e1']
+            });
+        }
+
+        function triggerMiniConfetti() {
+            confetti({
+                particleCount: 40,
+                spread: 50,
+                origin: { y: 0.7 },
+                colors: ['#ffb6c1', '#ff1493', '#fff0f5']
+            });
+        }
+
+        function triggerNewYearFireworksShow() {
+            var duration = 4.5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 35, spread: 360, ticks: 80, zIndex: 1000 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 60 * (timeLeft / duration);
+                
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.1, 0.4), y: Math.random() - 0.2 },
+                    colors: ['#ffb6c1', '#ff69b4', '#ff1493', '#ffffff', '#ffc0cb']
+                }));
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#ff69b4', '#ffe4e1', '#ff1493', '#fff0f5']
+                }));
+            }, 200);
+        }
+    </script>
+</body>
+</html>
